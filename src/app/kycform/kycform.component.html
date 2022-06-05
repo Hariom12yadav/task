@@ -1,0 +1,98 @@
+<div class="main">
+    <div class="container">
+      
+            <form [formGroup]="myForm" >
+                <header class="bg-secondary text-center mt-3" ><h1>KYC FORM</h1></header>
+                <div class="row mt-3 px-3">
+                <div class="col-xl-4">
+                    <mat-form-field class="w-100" >
+                        <label class=" text-secondary" >First Name*</label>
+                        <input matInput  formControlName="firstname" maxlength="15">
+                        <!-- <mat-error *ngIf="Haserror2('firstname','required')">Please enter first name</mat-error> -->
+                      </mat-form-field>
+                </div>
+                <div class="col-xl-4">
+                    <mat-form-field class="w-100" >
+                        <label class=" text-secondary" >Middle Name*</label>
+                        <input matInput  formControlName="lastname">
+                        <!-- <mat-error *ngIf="Haserror2('firstname','required')">Please enter first name</mat-error> -->
+                      </mat-form-field>
+                </div>
+                <div class="col-xl-4">
+                    <mat-form-field class="w-100" >
+                        <label class=" text-secondary" >Last Name*</label>
+                        <input matInput  formControlName="middlename">
+                        <!-- <mat-error *ngIf="Haserror2('firstname','required')">Please enter first name</mat-error> -->
+                      </mat-form-field>
+                </div>
+            </div>
+            <div class="row mt-3 px-3">
+                <div class="col-xl-4">
+                    <mat-form-field class="w-100" >
+                        <label class=" text-secondary" >Email-Id</label>
+                        <input matInput type="email" formControlName="email">
+                        <!-- <mat-error *ngIf="Haserror2('firstname','required')">Please enter first name</mat-error> -->
+                      </mat-form-field>
+                </div>
+                <div class="col-xl-4">
+                    <mat-form-field class="w-100">
+                        <!-- <mat-label>Enter DOB dor related person</mat-label><br> -->
+                        <label class=" text-secondary">Enter DOB </label>
+                        <input matInput [matDatepicker]="picker1" formControlName="DOB" [max]="maxDate" >
+                        <mat-datepicker-toggle matSuffix [for]="picker1" class="fs-5"></mat-datepicker-toggle>       
+                        <mat-datepicker #picker1></mat-datepicker>
+                        
+                        <!-- <mat-error *ngIf="Haserror('DOB','required')">Enter DOB</mat-error> -->
+                      </mat-form-field>
+                </div>
+                <div class="col-xl-4">
+                    <mat-form-field class="w-100" >
+                        <label class=" text-secondary" >Mobile .No</label>
+                        <input matInput type="number"  formControlName="mobile" maxlength="10" onkeypress="if (this.value.length > 10) return false;">
+                        <!-- <mat-error *ngIf="Haserror2('firstname','required')">Please enter first name</mat-error> -->
+                      </mat-form-field>
+                </div>
+            </div>
+            <div class="row mt-3 px-3">
+                <div class="col-xl-4">
+                    <mat-form-field class="w-100" >
+                        <label class=" text-secondary" >Address</label>
+                        <input matInput type="email" formControlName="address">
+                        <!-- <mat-error *ngIf="Haserror2('firstname','required')">Please enter first name</mat-error> -->
+                      </mat-form-field>
+                </div>
+                <div class="col-xl-4">
+                    <mat-form-field class="w-100" >
+                        <label class=" text-secondary" >City</label>
+                        <input matInput type="email" formControlName="city">
+                        <!-- <mat-error *ngIf="Haserror2('firstname','required')">Please enter first name</mat-error> -->
+                      </mat-form-field>
+                </div>
+                <div class="col-xl-4">
+                    <mat-form-field class="w-100" >
+                        <label class=" text-secondary" >State</label>
+                        <input matInput type="email" formControlName="state">
+                        <!-- <mat-error *ngIf="Haserror2('firstname','required')">Please enter first name</mat-error> -->
+                      </mat-form-field>
+                </div>
+                
+               
+                </div>
+                
+                <div class="row mt-3 px-3">
+                    <div class="col-xl-4">
+                        <mat-form-field class="w-100" >
+                            <label class=" text-secondary" >Pincode</label>
+                            <input matInput type="email" formControlName="pincode">
+                            <!-- <mat-error *ngIf="Haserror2('firstname','required')">Please enter first name</mat-error> -->
+                          </mat-form-field>
+                    </div>
+                    
+                   
+                    </div>
+    
+            
+            </form>
+        </div>
+    </div>
+    
