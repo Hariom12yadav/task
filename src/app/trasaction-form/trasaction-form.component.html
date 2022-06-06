@@ -1,0 +1,81 @@
+<app-header></app-header>
+<section>
+    <div class="container">
+        <div class="text-center">
+            <h1>Transaction Form</h1>
+        </div>
+        <form [formGroup]="transactionForm" (ngSubmit)="onSubmit()">
+            <div class="row">
+                <div class="col-md-4 block">
+                    <mat-form-field class="example-full-width field w-100">
+                        <mat-label>Account Holder Name</mat-label>
+                        <input matInput autocomplete="off" formControlName="name" maxlength="10">
+                    </mat-form-field>
+                    <div *ngIf="transactionForm.controls['name'].invalid && transactionForm.controls['name'].touched">
+                        <span class="text-danger" *ngIf="transactionForm.controls['name'].hasError('required')"> Account Holder Name required</span>
+                    </div>
+                </div>
+                <div class="col-md-4 block">
+                    <mat-form-field class="example-full-width field w-100">
+                        <mat-label>Date Of Purchase</mat-label>
+                        <input matInput [matDatepicker]="picker" [max]="maxDate" autocomplete="off" formControlName="dop">
+                        <mat-hint>MM/DD/YYYY</mat-hint>
+                        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                        <mat-datepicker #picker></mat-datepicker>
+                    </mat-form-field>
+                    <div *ngIf="transactionForm.controls['dop'].invalid && transactionForm.controls['dop'].touched">
+                        <span class="text-danger" *ngIf="transactionForm.controls['dop'].hasError('required')"> Date Of Purchase required</span>
+                    </div>
+                </div>
+                
+                <div class="col-md-4 block">
+                    <mat-form-field class="example-full-width field w-100">
+                        <mat-label>Amount Of Transaction</mat-label>
+                        <input type="number" matInput autocomplete="off" formControlName="amount" maxlength="6">
+                    </mat-form-field>
+                    <div *ngIf="transactionForm.controls['amount'].invalid && transactionForm.controls['amount'].touched">
+                        <span class="text-danger" *ngIf="transactionForm.controls['amount'].hasError('required')"> Amount Of Transaction required</span>
+                    </div>
+                </div>
+                
+                <div class="col-md-12 block">
+                    <mat-form-field class="example-full-width field w-100">
+                        <mat-label>Address</mat-label>
+                        <input type="number" matInput autocomplete="off" formControlName="address" maxlength="50">
+                    </mat-form-field>
+                    <div *ngIf="transactionForm.controls['address'].invalid && transactionForm.controls['address'].touched">
+                        <span class="text-danger" *ngIf="transactionForm.controls['address'].hasError('required')">Address required</span>
+                    </div>
+                </div>
+    
+                <div class="col-md-4 block">
+                    <mat-form-field class="example-full-width field w-100">
+                        <mat-label>Date</mat-label>
+                        <input matInput [matDatepicker]="picker1" autocomplete="off" formControlName="date">
+                        <mat-hint>MM/DD/YYYY</mat-hint>
+                        <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+                        <mat-datepicker #picker1></mat-datepicker>
+                    </mat-form-field>
+                    <div *ngIf="transactionForm.controls['date'].invalid && transactionForm.controls['date'].touched">
+                        <span class="text-danger" *ngIf="transactionForm.controls['date'].hasError('required')"> Date Of Purchase required</span>
+                    </div>
+                </div>
+    
+                <div class="col-md-4 block">
+                    <mat-form-field class="example-full-width field w-100">
+                        <mat-label>Place</mat-label>
+                        <input type="text" matInput autocomplete="off" formControlName="place" maxlength="10">
+                    </mat-form-field>
+                    <div *ngIf="transactionForm.controls['place'].invalid && transactionForm.controls['place'].touched">
+                        <span class="text-danger" *ngIf="transactionForm.controls['place'].hasError('required')"> Place required</span>
+                    </div>
+                </div>
+                
+                <div class="text-center pt-3 pb-3">
+                    <button class="btn btn-primary text-center">Submit</button>
+                </div>
+    
+            </div>
+        </form>
+    </div>
+</section>

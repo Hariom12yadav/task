@@ -1,0 +1,69 @@
+<app-header></app-header>
+<section>
+<div class="container">
+    <div class="heading text-center">
+        <h1>EMI Form</h1>
+    </div>
+    <form [formGroup]="EMIForm" (ngSubmit)="onSubmit()">
+        <div class="row">
+            <div class="col-md-6 block">
+                <mat-form-field class="example-full-width field w-100">
+                    <mat-label>EMI Holder Name</mat-label>
+                    <input type="text" matInput autocomplete="off" formControlName="hname" maxlength="10">
+                </mat-form-field>
+                <div *ngIf="EMIForm.controls['hname'].invalid && EMIForm.controls['hname'].touched">
+                    <span class="text-danger" *ngIf="EMIForm.controls['hname'].hasError('required')">EMI Holder Name required</span>
+                </div>
+            </div>
+
+            <div class="col-md-6 block">
+                <mat-form-field class="example-full-width field w-100">
+                    <mat-label>Email ID</mat-label>
+                    <input type="text" matInput autocomplete="off" formControlName="email">
+                </mat-form-field>
+                <div *ngIf="EMIForm.controls['email'].invalid && EMIForm.controls['email'].touched">
+                    <span class="text-danger" *ngIf="EMIForm.controls['email'].hasError('required')">Email ID required</span>
+                    <span class="text-danger" *ngIf="EMIForm.controls['email'].hasError('email')">Email ID Invalid</span>
+                </div>
+            </div>
+            <div class="col-md-6 block">
+                <mat-form-field class="example-full-width field w-100">
+                    <mat-label>Mobile No</mat-label>
+                    <input type="number" matInput autocomplete="off" formControlName="mob" maxlength="10" onkeypress="if (this.value.length > 9) return false;">
+                </mat-form-field>
+                <div *ngIf="EMIForm.controls['mob'].invalid && EMIForm.controls['mob'].touched">
+                    <span class="text-danger" *ngIf="EMIForm.controls['mob'].hasError('required')">Mobile No required</span>
+                    <span class="text-danger" *ngIf="EMIForm.controls['mob'].hasError('pattern')">Mobile No Invalid</span>
+                </div>
+            </div>
+
+            <div class="col-md-4 block">
+                <mat-form-field class="example-full-width field w-100">
+                    <mat-label>Date Of Purchase</mat-label>
+                    <input matInput [matDatepicker]="picker" [max]="maxDate"  autocomplete="off" formControlName="dop">
+                    <mat-hint>MM/DD/YYYY</mat-hint>
+                    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                    <mat-datepicker #picker></mat-datepicker>
+                </mat-form-field>
+                <div *ngIf="EMIForm.controls['dop'].invalid && EMIForm.controls['dop'].touched">
+                    <span class="text-danger" *ngIf="EMIForm.controls['dop'].hasError('required')">Date Of Purchase required</span>
+                </div>
+            </div>
+
+            <div class="col-md-4 block">
+                <mat-form-field class="example-full-width field w-100">
+                    <mat-label>Amount</mat-label>
+                    <input type="number" matInput autocomplete="off" formControlName="amount" maxlength="8" onkeypress="if (this.value.length > 7) return false;">
+                </mat-form-field>
+                <div *ngIf="EMIForm.controls['amount'].invalid && EMIForm.controls['amount'].touched">
+                    <span class="text-danger" *ngIf="EMIForm.controls['amount'].hasError('required')">Amount required</span>
+                </div>
+            </div>
+
+            <div class="text-center pt-5 pb-3">
+                <button class="btn btn-primary text-center">Submit</button>
+            </div>
+        </div>
+    </form>
+</div>
+</section>

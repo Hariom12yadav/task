@@ -1,0 +1,67 @@
+<app-header></app-header>
+<section>
+    <div class="container">
+        <div class="text-center">
+            <h1>Statement Form</h1>
+        </div>
+        <form [formGroup]="statementForm" (ngSubmit)="onSubmit()">
+            <div class="row">
+                <div class="col-md-12 block">
+                    <mat-form-field class="example-full-width field w-100">
+                        <mat-label>Home Loan Account No</mat-label>
+                        <input type="number" matInput autocomplete="off" formControlName="accno1" maxlength="15" onkeypress="if (this.value.length > 14) return false;">
+                    </mat-form-field>
+                    <div *ngIf="statementForm.controls['accno1'].invalid && statementForm.controls['accno1'].touched">
+                        <span class="text-danger" *ngIf="statementForm.controls['accno1'].hasError('required')"> Home Loan Account No required</span>
+                    </div>
+                </div>
+    
+                <div class="col-md-6 block">
+                    <mat-form-field class="example-full-width field w-100">
+                        <mat-label>Date Of Birth</mat-label>
+                        <input matInput [matDatepicker]="picker" [max]="maxDate" autocomplete="off" formControlName="dob">
+                        <mat-hint>MM/DD/YYYY</mat-hint>
+                        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                        <mat-datepicker #picker></mat-datepicker>
+                    </mat-form-field>
+                    <div *ngIf="statementForm.controls['dob'].invalid && statementForm.controls['dob'].touched">
+                        <span class="text-danger" *ngIf="statementForm.controls['dob'].hasError('required')"> Date Of Birth required</span>
+                    </div>
+                </div>
+    
+                <div class="col-md-12 block">
+                    <mat-form-field class="example-full-width field w-100">
+                        <mat-label>Account No</mat-label>
+                        <input type="number" matInput autocomplete="off" formControlName="accno2" maxlength="15" onkeypress="if (this.value.length > 14) return false;">
+                    </mat-form-field>
+                    <div *ngIf="statementForm.controls['accno2'].invalid && statementForm.controls['accno2'].touched">
+                        <span class="text-danger" *ngIf="statementForm.controls['accno2'].hasError('required')">  Account No required</span>
+                    </div>
+                </div>
+    
+                <div class="col-md-6 block">
+                    <mat-form-field class="example-full-width field w-100">
+                        <mat-label>Loan Amount</mat-label>
+                        <input type="number" matInput autocomplete="off" formControlName="loanamount" maxlength="8">
+                    </mat-form-field>
+                    <div *ngIf="statementForm.controls['loanamount'].invalid && statementForm.controls['loanamount'].touched">
+                        <span class="text-danger" *ngIf="statementForm.controls['loanamount'].hasError('required')"> Loan Amount required</span>
+                    </div>
+                </div>
+                <div class="col-md-6 block">
+                    <mat-form-field class="example-full-width field w-100">
+                        <mat-label>EMI Amount</mat-label>
+                        <input type="number" matInput autocomplete="off" formControlName="emiamount" maxlength="6">
+                    </mat-form-field>
+                    <div *ngIf="statementForm.controls['emiamount'].invalid && statementForm.controls['emiamount'].touched">
+                        <span class="text-danger" *ngIf="statementForm.controls['emiamount'].hasError('required')"> EMI Amount required</span>
+                    </div>
+                </div>
+    
+                <div class="text-center pt-3 pb-3">
+                    <button class="btn btn-primary text-center">Submit</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</section>

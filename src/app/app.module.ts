@@ -28,6 +28,11 @@ import {MatDialogModule} from '@angular/material/dialog';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HomeloanComponent } from './homeloan/homeloan.component';
 import { PersonalInformationComponent } from './personal-information/personal-information.component';
+import { PayEMIComponent } from './pay-emi/pay-emi.component';
+import { TrasactionFormComponent } from './trasaction-form/trasaction-form.component';
+import { StatementAccountComponent } from './statement-account/statement-account.component';
+import { RepayScheduleComponent } from './repay-schedule/repay-schedule.component';
+import { HeaderComponent } from './header/header.component';
 
 @NgModule({
   declarations: [
@@ -43,7 +48,12 @@ import { PersonalInformationComponent } from './personal-information/personal-in
     ForeclosureComponent,
     ConsumerComponent,
     HomeloanComponent,
-    PersonalInformationComponent
+    PersonalInformationComponent,
+    PayEMIComponent,
+    TrasactionFormComponent,
+    StatementAccountComponent,
+    RepayScheduleComponent,
+    HeaderComponent
   ],
   imports: [
     BrowserModule,

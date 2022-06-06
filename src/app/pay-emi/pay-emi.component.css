@@ -1,0 +1,8 @@
+section {padding-bottom: 30px;}
+.container { padding: 20px; border-radius: 4%; box-shadow: 7px 6px 16px 15px  #eee; width: 80%;}
+mat-label{font-size: 20px; color: black;}
+input {padding: 10px 0; font-size: 18px;}
+h1 {font-size: 35px; font-weight: 500; padding: 10px 0;}
+.block{padding: 5px 20px;}
+.btn {width: 60%;}
+mat-label{font-size: 20px; font-weight: 500;}

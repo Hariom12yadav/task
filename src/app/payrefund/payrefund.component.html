@@ -1,1 +1,98 @@
-<p>payrefund works!</p>
+<app-header></app-header>
+<section>
+    <div class="container">
+        <div class="text-center">
+            <h1>Refund Form</h1>
+        </div>
+        <form [formGroup]="refundForm" (ngSubmit)="onSubmit()">
+            <div class="row">
+                <div class="col-md-6 block">
+                    <mat-form-field class="example-full-width field w-100">
+                        <mat-label>Account Holder Name</mat-label>
+                        <input type="text" matInput autocomplete="off" formControlName="name" maxlength="10">
+                    </mat-form-field>
+                    <div *ngIf="refundForm.controls['name'].invalid && refundForm.controls['name'].touched">
+                        <span class="text-danger" *ngIf="refundForm.controls['name'].hasError('required')"> Account Holder Name required</span>
+                    </div>
+                </div>
+    
+                <div class="col-md-6 block">
+                    <mat-form-field class="example-full-width field w-100">
+                        <mat-label>Email ID</mat-label>
+                        <input type="text" matInput autocomplete="off" formControlName="email">
+                    </mat-form-field>
+                    <div *ngIf="refundForm.controls['email'].invalid && refundForm.controls['email'].touched">
+                        <span class="text-danger" *ngIf="refundForm.controls['email'].hasError('required')"> Email ID required</span>
+                        <span class="text-danger" *ngIf="refundForm.controls['email'].hasError('email')"> Email ID Is Invalid</span>
+                    </div>
+                </div>
+    
+                <div class="col-md-12 block">
+                    <mat-form-field class="example-full-width field w-100">
+                        <mat-label>Address</mat-label>
+                        <input type="text" matInput autocomplete="off" formControlName="address" maxlength="50">
+                    </mat-form-field>
+                    <div *ngIf="refundForm.controls['address'].invalid && refundForm.controls['address'].touched">
+                        <span class="text-danger" *ngIf="refundForm.controls['address'].hasError('required')"> Address required</span>
+                    </div>
+                </div>
+    
+                <div class="col-md-4 block">
+                    <mat-form-field class="example-full-width field w-100">
+                        <mat-label>City</mat-label>
+                        <input type="text" matInput autocomplete="off" formControlName="city" maxlength="10">
+                    </mat-form-field>
+                    <div *ngIf="refundForm.controls['city'].invalid && refundForm.controls['city'].touched">
+                        <span class="text-danger" *ngIf="refundForm.controls['city'].hasError('required')"> City Name required</span>
+                    </div>
+                </div>
+    
+                <div class="col-md-4 block">
+                    <mat-form-field class="example-full-width field w-100">
+                        <mat-label>State</mat-label>
+                        <input type="text" matInput autocomplete="off" formControlName="state" maxlength="10">
+                    </mat-form-field>
+                    <div *ngIf="refundForm.controls['state'].invalid && refundForm.controls['state'].touched">
+                        <span class="text-danger" *ngIf="refundForm.controls['state'].hasError('required')"> State Name required</span>
+                    </div>
+                </div>
+    
+                <div class="col-md-4 block">
+                    <mat-form-field class="example-full-width field w-100">
+                        <mat-label>Pin Code</mat-label>
+                        <input type="number" matInput autocomplete="off" formControlName="pin" maxlength="6"
+                        onkeypress="if (this.value.length > 5) return false;">
+                    </mat-form-field>
+                    <div *ngIf="refundForm.controls['pin'].invalid && refundForm.controls['pin'].touched">
+                        <span class="text-danger" *ngIf="refundForm.controls['pin'].hasError('required')"> Pin Code No required</span>
+                        <span class="text-danger" *ngIf="refundForm.controls['pin'].hasError('pattern')"> Pin Code No Invalid</span>
+                    </div>
+                </div>
+    
+                <div class="col-md-4 block">
+                    <mat-form-field class="example-full-width field w-100">
+                        <mat-label>Country</mat-label>
+                        <input type="text" matInput autocomplete="off" formControlName="country" maxlength="10">
+                    </mat-form-field>
+                    <div *ngIf="refundForm.controls['country'].invalid && refundForm.controls['country'].touched">
+                        <span class="text-danger" *ngIf="refundForm.controls['country'].hasError('required')"> country Name required</span>
+                    </div>
+                </div>
+    
+                <div class="col-md-4 block">
+                    <mat-form-field class="example-full-width field w-100">
+                        <mat-label>Mobile No</mat-label>
+                        <input type="number" matInput autocomplete="off" formControlName="mob" maxlength="10">
+                    </mat-form-field>
+                    <div *ngIf="refundForm.controls['mob'].invalid && refundForm.controls['mob'].touched">
+                        <span class="text-danger" *ngIf="refundForm.controls['mob'].hasError('required')"> Mobile No required</span>
+                        <span class="text-danger" *ngIf="refundForm.controls['mob'].hasError('pattern')"> Mobile No Invalid</span>
+                    </div>
+                </div>
+                <div class="text-center pt-3 pb-3">
+                    <button class="btn btn-primary text-center">Submit</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</section>

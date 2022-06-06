@@ -1,84 +1,185 @@
-<div class="main">
-    <div class="container">
-      
-            <form >
-                <header class="bg-secondary text-center mt-3" ><h1>Loan Details</h1></header>
-                <div class="row mt-3 px-3">
-                <div class="col-xl-4">
-                    <mat-form-field class="w-100" >
-                        <label class=" text-secondary" >First Name*</label>
-                        <input matInput  formControlName="firstname">
-                        <!-- <mat-error *ngIf="Haserror2('firstname','required')">Please enter first name</mat-error> -->
-                      </mat-form-field>
-                </div>
-                <div class="col-xl-4">
-                    <mat-form-field class="w-100" >
-                        <label class=" text-secondary" >Middle Name*</label>
-                        <input matInput  formControlName="firstname">
-                        <!-- <mat-error *ngIf="Haserror2('firstname','required')">Please enter first name</mat-error> -->
-                      </mat-form-field>
-                </div>
-                <div class="col-xl-4">
-                    <mat-form-field class="w-100" >
-                        <label class=" text-secondary" >Last Name*</label>
-                        <input matInput  formControlName="firstname">
-                        <!-- <mat-error *ngIf="Haserror2('firstname','required')">Please enter first name</mat-error> -->
-                      </mat-form-field>
-                </div>
-                <div class="col-xl-4">
-                    <mat-form-field class="w-100" >
-                        <label class=" text-secondary" >Father Name*</label>
-                        <input matInput  formControlName="firstname">
-                        <!-- <mat-error *ngIf="Haserror2('firstname','required')">Please enter first name</mat-error> -->
-                      </mat-form-field>
-                </div>
-                <div class="col-xl-4">
-                    <mat-form-field class="w-100" >
-                        <label class=" text-secondary" >Mother Name*</label>
-                        <input matInput  formControlName="firstname">
-                        <!-- <mat-error *ngIf="Haserror2('firstname','required')">Please enter first name</mat-error> -->
-                      </mat-form-field>
-                </div>
-            </div>
-            <div class="row mt-3 px-3">
-                <div class="col-xl-4">
-                    <mat-form-field class="w-100" >
-                        <label class=" text-secondary" >Email-Id</label>
-                        <input matInput type="email" formControlName="firstname">
-                        <!-- <mat-error *ngIf="Haserror2('firstname','required')">Please enter first name</mat-error> -->
-                      </mat-form-field>
-                </div>
-                <div class="col-xl-4">
-                    <mat-form-field class="w-100">
-                        <!-- <mat-label>Enter DOB dor related person</mat-label><br> -->
-                        <label class=" text-secondary">Enter Date Of Birth</label>
-                        <input matInput [matDatepicker]="picker1" formControlName="DOB" [max]="maxDate" >
-                        <mat-datepicker-toggle matSuffix [for]="picker1" class="fs-5"></mat-datepicker-toggle>       
-                        <mat-datepicker #picker1></mat-datepicker>
-                        
-                        <!-- <mat-error *ngIf="Haserror('DOB','required')">Enter DOB</mat-error> -->
-                      </mat-form-field>
-                </div>
-                <div class="col-xl-4">
-                    <mat-form-field class="w-100" >
-                        <label class=" text-secondary" >Mobile .No</label>
-                        <input matInput type="number"  formControlName="firstname" maxlength="10">
-                        <!-- <mat-error *ngIf="Haserror2('firstname','required')">Please enter first name</mat-error> -->
-                      </mat-form-field>
-                </div>
-            </div>
-            <div class="row mt-3 px-3">
-                <div class="col-xl-4">
-                    <mat-form-field class="w-100" >
-                        <label class=" text-secondary" >Address</label>
-                        <input matInput type="email" formControlName="firstname">
-                        <!-- <mat-error *ngIf="Haserror2('firstname','required')">Please enter first name</mat-error> -->
-                      </mat-form-field>
-                </div>
-                </div>
-    
-            
-            </form>
-        </div>
+<app-header></app-header>
+<section>
+<div class="container">
+    <div class="heading text-center">
+        <h1>Loan Details</h1>
     </div>
-    
+    <form [formGroup]="loanForm" (ngSubmit)="onSubmit()">
+        <div class="row">
+            <div class="col-md-4 block">
+                <mat-form-field class="example-full-width field w-100">
+                    <mat-label>First Name</mat-label>
+                    <input type="text" matInput autocomplete="off" formControlName="fname" maxlength="10">
+                </mat-form-field>
+                <div *ngIf="loanForm.controls['fname'].invalid && loanForm.controls['fname'].touched">
+                    <span class="text-danger" *ngIf="loanForm.controls['fname'].hasError('required')">First Name required</span>
+                </div>
+            </div>
+
+            <div class="col-md-4 block">
+                <mat-form-field class="example-full-width field w-100">
+                    <mat-label>Middle Name</mat-label>
+                    <input matInput autocomplete="off"  formControlName="mname">
+                </mat-form-field>
+                <div *ngIf="loanForm.controls['mname'].invalid && loanForm.controls['mname'].touched">
+                    <span class="text-danger" *ngIf="loanForm.controls['mname'].hasError('required')">Middle Name required</span>
+                </div>
+            </div>
+
+            <div class="col-md-4 block">
+                <mat-form-field class="example-full-width field w-100">
+                    <mat-label>Last Name</mat-label>
+                    <input matInput autocomplete="off" formControlName="lname">
+                </mat-form-field>
+                <div *ngIf="loanForm.controls['lname'].invalid && loanForm.controls['lname'].touched">
+                    <span class="text-danger" *ngIf="loanForm.controls['lname'].hasError('required')">Last Name required</span>
+                </div>
+            </div>
+
+            <div class="col-md-6 block">
+                <mat-form-field class="example-full-width field w-100">
+                    <mat-label>Father Name</mat-label>
+                    <input matInput autocomplete="off" formControlName="faname">
+                </mat-form-field>
+                <div *ngIf="loanForm.controls['faname'].invalid && loanForm.controls['faname'].touched">
+                    <span class="text-danger" *ngIf="loanForm.controls['faname'].hasError('required')">Father Name required</span>
+                </div>
+            </div>
+
+            <div class="col-md-6 block">
+                <mat-form-field class="example-full-width field w-100">
+                    <mat-label>Mother Name</mat-label>
+                    <input matInput autocomplete="off" formControlName="moname">
+                </mat-form-field>
+                <div *ngIf="loanForm.controls['moname'].invalid && loanForm.controls['moname'].touched">
+                    <span class="text-danger" *ngIf="loanForm.controls['moname'].hasError('required')">Mother Name required</span>
+                </div>
+            </div>
+
+            <div class="col-md-4 block">
+                <mat-form-field class="example-full-width field w-100">
+                    <mat-label>Email ID</mat-label>
+                    <input type="email" matInput autocomplete="off" formControlName="email">
+                </mat-form-field>
+                <div *ngIf="loanForm.controls['email'].invalid && loanForm.controls['email'].touched">
+                    <span class="text-danger" *ngIf="loanForm.controls['email'].hasError('required')">Email IDrequired</span>
+                    <span class="text-danger" *ngIf="loanForm.controls['email'].hasError('email')">Email ID required</span>
+                </div>
+            </div>
+
+            <div class="col-md-4 block">
+                <mat-form-field class="example-full-width field w-100">
+                    <mat-label>Mobile No</mat-label>
+                    <input type="number" matInput autocomplete="off" formControlName="mob" maxlength="10" onkeypress="if (this.value.length > 9) return false;">
+                </mat-form-field>
+                <div *ngIf="loanForm.controls['mob'].invalid && loanForm.controls['mob'].touched">
+                    <span class="text-danger" *ngIf="loanForm.controls['mob'].hasError('required')">Mobile No required</span>
+                </div>
+            </div>
+
+            <div class="col-md-4 block">
+                <mat-form-field class="example-full-width field w-100">
+                    <mat-label>City</mat-label>
+                    <input matInput autocomplete="off" formControlName="city" maxlength="10">
+                </mat-form-field>
+                <div *ngIf="loanForm.controls['city'].invalid && loanForm.controls['city'].touched">
+                    <span class="text-danger" *ngIf="loanForm.controls['city'].hasError('required')">City Name required</span>
+                </div>
+            </div>
+
+            <div class="col-md-4 block">
+                <mat-form-field class="example-full-width field w-100">
+                    <mat-label>State</mat-label>
+                    <input matInput autocomplete="off" formControlName="state" maxlength="10">
+                </mat-form-field>
+                <div *ngIf="loanForm.controls['state'].invalid && loanForm.controls['state'].touched">
+                    <span class="text-danger" *ngIf="loanForm.controls['state'].hasError('required')">State Name required</span>
+                </div>
+            </div>
+            
+            <div class="col-md-4 block">
+                <mat-form-field class="example-full-width field w-100">
+                    <mat-label>Cast Category</mat-label>
+                    <select matNativeControl formControlName="category">
+                        <option class="option" value="OBC">OBC</option>
+                        <option class="option" value="SC">SC</option>
+                        <option class="option" value="ST">ST</option>
+                    </select>
+                </mat-form-field>
+                <div *ngIf="loanForm.controls['category'].invalid && loanForm.controls['category'].touched">
+                    <span class="text-danger" *ngIf="loanForm.controls['category'].hasError('required')">Category required</span>
+                </div>
+            </div>
+
+            <div class="col-md-4 block">
+                <mat-form-field class="example-full-width field w-100">
+                    <mat-label>Religion</mat-label>
+                    <input matInput autocomplete="off" formControlName="religion" maxlength="10">
+                </mat-form-field>
+                <div *ngIf="loanForm.controls['religion'].invalid && loanForm.controls['religion'].touched">
+                    <span class="text-danger" *ngIf="loanForm.controls['religion'].hasError('required')">Religion required</span>
+                </div>
+            </div>
+
+            <div class="col-md-4 block">
+                <mat-form-field class="example-full-width field w-100">
+                    <mat-label>Nationality</mat-label>
+                    <input matInput autocomplete="off" formControlName="nationality" maxlength="10">
+                </mat-form-field>
+                <div *ngIf="loanForm.controls['nationality'].invalid && loanForm.controls['nationality'].touched">
+                    <span class="text-danger" *ngIf="loanForm.controls['nationality'].hasError('required')">Nationality required</span>
+                </div>
+            </div>
+
+            <div class="col-md-4 block">
+                <mat-form-field class="example-full-width field w-100">
+                    <mat-label>Place Of birth</mat-label>
+                    <input matInput autocomplete="off" formControlName="pob" maxlength="10">
+                </mat-form-field>
+                <div *ngIf="loanForm.controls['pob'].invalid && loanForm.controls['pob'].touched">
+                    <span class="text-danger" *ngIf="loanForm.controls['pob'].hasError('required')">Place Of Birth required</span>
+                </div>
+            </div>
+
+            <div class="col-md-4 block">
+                <mat-form-field class="example-full-width field w-100">
+                    <mat-label>Aadhar Card No</mat-label>
+                    <input type="number" matInput autocomplete="off" formControlName="aadhar" maxlength="12" onkeypress="if (this.value.length > 11) return false;">
+                </mat-form-field>
+                <div *ngIf="loanForm.controls['aadhar'].invalid && loanForm.controls['aadhar'].touched">
+                    <span class="text-danger" *ngIf="loanForm.controls['aadhar'].hasError('required')">Aadhar Card No required</span>
+                    <span class="text-danger" *ngIf="loanForm.controls['aadhar'].hasError('pattern')">Aadhar Card No Invalid</span>
+                </div>
+            </div>
+
+            <div class="col-md-4 block">
+                <mat-form-field class="example-full-width field w-100">
+                    <mat-label>Pan card No</mat-label>
+                    <input matInput autocomplete="off" formControlName="pan" maxlength="10">
+                </mat-form-field>
+                <div *ngIf="loanForm.controls['pan'].invalid && loanForm.controls['pan'].touched">
+                    <span class="text-danger" *ngIf="loanForm.controls['pan'].hasError('required')">Pan Card No required</span>
+                </div>
+            </div>
+
+            <div class="col-md-4 block">
+                <mat-form-field class="example-full-width field w-100">
+                    <mat-label>Highest Qualification</mat-label>
+                    <select matNativeControl formControlName="qualification">
+                        <option class="option" value="BSc">BSc</option>
+                        <option class="option" value="MSc">MSc</option>
+                    </select>
+                </mat-form-field>
+                <div *ngIf="loanForm.controls['qualification'].invalid && loanForm.controls['qualification'].touched">
+                    <span class="text-danger" *ngIf="loanForm.controls['qualification'].hasError('required')"> Qualification required</span>
+                </div>
+            </div>
+
+            <div class="text-center pt-5 pb-3">
+                <button class="btn btn-primary text-center">Submit</button>
+            </div>
+
+        </div>
+    </form>
+</div>
+</section>
