@@ -27,7 +27,18 @@ import { MatButtonModule } from '@angular/material/button';
 import {MatDialogModule} from '@angular/material/dialog';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HomeloanComponent } from './homeloan/homeloan.component';
+
 import { Header2Component } from './header2/header2.component';
+
+import { PersonalInformationComponent } from './personal-information/personal-information.component';
+import { PayEMIComponent } from './pay-emi/pay-emi.component';
+import { TrasactionFormComponent } from './trasaction-form/trasaction-form.component';
+import { StatementAccountComponent } from './statement-account/statement-account.component';
+import { RepayScheduleComponent } from './repay-schedule/repay-schedule.component';
+import { HeaderComponent } from './header/header.component';
+import { ConsumerloanComponent } from './consumerloan/consumerloan.component';
+import { RefundComponent } from './refund/refund.component';
+
 
 @NgModule({
   declarations: [
@@ -43,7 +54,18 @@ import { Header2Component } from './header2/header2.component';
     ForeclosureComponent,
     ConsumerComponent,
     HomeloanComponent,
-    Header2Component
+
+    Header2Component,
+
+    PersonalInformationComponent,
+    PayEMIComponent,
+    TrasactionFormComponent,
+    StatementAccountComponent,
+    RepayScheduleComponent,
+    HeaderComponent,
+    ConsumerloanComponent,
+    RefundComponent
+
   ],
   imports: [
     BrowserModule,

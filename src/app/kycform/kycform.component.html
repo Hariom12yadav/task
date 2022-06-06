@@ -25,7 +25,7 @@
                 <div class="col-xl-4">
                     <mat-form-field class="w-100" >
                         <label class=" text-secondary" >Middle Name*</label>
-                        <input matInput  formControlName="lastname" maxlength="20">
+                        <input matInput  formControlName="middlename" maxlength="20">
                         <!-- <mat-error *ngIf="Haserror2('firstname','required')">Please enter first name</mat-error> -->
                       </mat-form-field>
                       <div *ngIf="myForm.controls['middlename'].invalid && (myForm.controls['middlename'].dirty || myForm.controls['middlename'].touched || myForm.controls['middlename'].pattern)" >
@@ -36,7 +36,7 @@
                 <div class="col-xl-4">
                     <mat-form-field class="w-100" >
                         <label class=" text-secondary" >Last Name*</label>
-                        <input matInput  formControlName="middlename" maxlength="20">
+                        <input matInput  formControlName="lastname" maxlength="20">
                         <!-- <mat-error *ngIf="Haserror2('firstname','required')">Please enter first name</mat-error> -->
                       </mat-form-field>
                       <div *ngIf="myForm.controls['lastname'].invalid && (myForm.controls['lastname'].dirty || myForm.controls['lastname'].touched || myForm.controls['lastname'].pattern)" >
@@ -45,6 +45,31 @@
                         </div>
                 </div>
             </div>
+            <div class="row mt-3 px-3">
+              <div class="col-xl-4">
+                <mat-form-field class="w-100" >
+                    <label class=" text-secondary" >Father Name*</label>
+                    <input matInput  formControlName="father" maxlength="20">
+                  </mat-form-field>
+                  <div *ngIf="myForm.controls['father'].invalid && (myForm.controls['father'].dirty || myForm.controls['father'].touched || myForm.controls['father'].pattern)" >
+                    <mat-error *ngIf="myForm.controls['father'].errors.required">  Please enter father name</mat-error>
+                    <mat-error *ngIf="myForm.controls['father'].errors.pattern">  please enter characters only</mat-error>
+                    </div>   
+            </div>
+            <div class="col-xl-4">
+              <mat-form-field class="w-100" >
+                  <label class=" text-secondary" >Mother Name*</label>
+                  <input matInput  formControlName="mother" maxlength="20">
+                  <!-- <mat-error *ngIf="Haserror2('firstname','required')">Please enter first name</mat-error> -->
+                </mat-form-field>
+                <div *ngIf="myForm.controls['mother'].invalid && (myForm.controls['mother'].dirty || myForm.controls['mother'].touched || myForm.controls['mother'].pattern)" >
+                  <mat-error *ngIf="myForm.controls['mother'].errors.required">  Please enter Mother name</mat-error>
+                  <mat-error *ngIf="myForm.controls['mother'].errors.pattern">  please enter characters only</mat-error>
+                  </div>
+                  
+
+          </div>
+              </div>
             <div class="row mt-3 px-3">
                 <div class="col-xl-4">
                     <mat-form-field class="w-100" >

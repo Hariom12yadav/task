@@ -1,0 +1,156 @@
+
+<div class="header">
+    <app-header></app-header>
+</div>
+<section>
+<div class="container">
+    <div class="text-center">
+        <h1>Personal Information</h1>
+    </div>
+    <form [formGroup]="personalForm" (ngSubmit)="onSubmit1()">
+        <div class="row">
+            <div class="col-md-4 block pt-3">
+                <mat-form-field class="example-full-width field w-100">
+                    <mat-label>First Name</mat-label>
+                    <input type="text" matInput autocomplete="off" formControlName="fname" maxlength="10">
+                </mat-form-field>
+                <div *ngIf="personalForm.controls['fname'].invalid && personalForm.controls['fname'].touched">
+                    <span class="text-danger" *ngIf="personalForm.controls['fname'].hasError('required')">First Name required</span>
+                </div>
+            </div>
+
+            <div class="col-md-4 block pt-3">
+                <mat-form-field class="example-full-width field w-100">
+                    <mat-label>Middle Name</mat-label>
+                    <input matInput autocomplete="new-password" formControlName="mname" maxlength="10">
+                </mat-form-field>
+                <div *ngIf="personalForm.controls['mname'].invalid && personalForm.controls['mname'].touched">
+                    <span class="text-danger" *ngIf="personalForm.controls['mname'].hasError('required')">Middle Name required</span>
+                </div>
+            </div>
+
+            <div class="col-md-4 block pt-3">
+                <mat-form-field class="example-full-width field w-100">
+                    <mat-label>Last Name</mat-label>
+                    <input matInput autocomplete="off" formControlName="lname" maxlength="10">
+                </mat-form-field>
+                <div *ngIf="personalForm.controls['lname'].invalid && personalForm.controls['lname'].touched">
+                    <span class="text-danger" *ngIf="personalForm.controls['lname'].hasError('required')">Last Name required</span>
+                </div>
+            </div>
+
+            <div class="col-md-4 block pt-3">
+                <mat-form-field class="example-full-width field w-100">
+                    <mat-label>Email ID</mat-label>
+                    <input matInput autocomplete="off" formControlName="email">
+                </mat-form-field>
+                <div *ngIf="personalForm.controls['email'].invalid && personalForm.controls['email'].touched">
+                    <span class="text-danger" *ngIf="personalForm.controls['email'].hasError('required')">Email ID required</span>
+                    <span class="text-danger" *ngIf="personalForm.controls['email'].hasError('email')">Email ID Invalid</span>
+                </div>
+            </div>
+
+            <div class="col-md-4 block pt-3">
+                <mat-form-field class="example-full-width field w-100">
+                    <mat-label>Date Of Birth</mat-label>
+                    <input matInput [matDatepicker]="picker"[max]="maxDate" autocomplete="off" formControlName="dob">
+                    <mat-hint>MM/DD/YYYY</mat-hint>
+                    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                    <mat-datepicker #picker></mat-datepicker>
+                </mat-form-field>
+                <div *ngIf="personalForm.controls['dob'].invalid && personalForm.controls['dob'].touched">
+                    <span class="text-danger" *ngIf="personalForm.controls['dob'].hasError('required')">Date Of Birth required</span>
+                </div>
+            </div>
+            <div class="col-md-4 block pt-3">
+                <mat-form-field class="example-full-width field w-100">
+                    <mat-label>Mobile No</mat-label>
+                    <input type="number" matInput autocomplete="off" formControlName="mob" maxlength="10" onkeypress="if (this.value.length > 9) return false;">
+                </mat-form-field>
+                <div *ngIf="personalForm.controls['mob'].invalid && personalForm.controls['mob'].touched">
+                    <span class="text-danger" *ngIf="personalForm.controls['mob'].hasError('required')">Mobile No required</span>
+                    <span class="text-danger" *ngIf="personalForm.controls['mob'].hasError('pattern')">Mobile No Invalid</span>
+                </div>
+            </div>
+            
+            <div class="col-md-12 block pt-3">
+                <mat-form-field class="example-full-width field w-100">
+                    <mat-label>Address</mat-label>
+                    <input matInput autocomplete="off" formControlName="address" maxlength="50">
+                </mat-form-field>
+                <div *ngIf="personalForm.controls['address'].invalid && personalForm.controls['address'].touched">
+                    <span class="text-danger" *ngIf="personalForm.controls['address'].hasError('required')">Address required</span>
+                </div>
+            </div>
+
+            <div class="col-md-4 block pt-3">
+                <mat-form-field class="example-full-width field w-100">
+                    <mat-label>City</mat-label>
+                    <input matInput autocomplete="off" formControlName="city" maxlength="10">
+                </mat-form-field>
+                <div *ngIf="personalForm.controls['city'].invalid && personalForm.controls['city'].touched">
+                    <span class="text-danger" *ngIf="personalForm.controls['city'].hasError('required')">City Required</span>
+                </div>
+            </div>
+
+            <div class="col-md-4 block pt-3">
+                <mat-form-field class="example-full-width field w-100">
+                    <mat-label>State</mat-label>
+                    <input matInput autocomplete="off"  formControlName="state" maxlength="10">
+                </mat-form-field>
+                <div *ngIf="personalForm.controls['state'].invalid && personalForm.controls['state'].touched">
+                    <span class="text-danger" *ngIf="personalForm.controls['state'].hasError('required')">State Required</span>
+                </div>
+            </div>
+
+            <div class="col-md-4 block pt-3">
+                <mat-form-field class="example-full-width field w-100">
+                    <mat-label>Pin Code</mat-label>
+                    <input matInput autocomplete="off" formControlName="pin" maxlength="6" onkeypress="if (this.value.length > 6) return false;">
+                </mat-form-field>
+                <div *ngIf="personalForm.controls['pin'].invalid && personalForm.controls['pin'].touched">
+                    <span class="text-danger" *ngIf="personalForm.controls['pin'].hasError('required')">Pin Code Required</span>
+                    <span class="text-danger" *ngIf="personalForm.controls['pin'].hasError('pattern')">Pin Code Required</span>
+                </div>
+            </div>
+
+            <div class="col-md-4 block pt-3">
+                <mat-form-field class="example-full-width field w-100">
+                    <mat-label>Country</mat-label>
+                    <input matInput autocomplete="off" formControlName="country">
+                </mat-form-field>
+                <div *ngIf="personalForm.controls['country'].invalid && personalForm.controls['country'].touched">
+                    <span class="text-danger" *ngIf="personalForm.controls['country'].hasError('required')">Country Required</span>
+                </div>
+            </div>
+
+            <div class="col-md-4 block pt-3">
+                <mat-form-field class="example-full-width field w-100">
+                    <mat-label>Pan Card No</mat-label>
+                    <input type="text" matInput autocomplete="off" formControlName="pan" maxlength="10">
+                </mat-form-field>
+                <div *ngIf="personalForm.controls['pan'].invalid && personalForm.controls['pan'].touched">
+                    <span class="text-danger" *ngIf="personalForm.controls['pan'].hasError('required')">Pan Card No Required</span>
+                    <span class="text-danger" *ngIf="personalForm.controls['pan'].hasError('pattern')">Pan Card No Invalid</span>
+                </div>
+            </div>
+            
+            <div class="col-md-4 block pt-3">
+                <mat-form-field class="example-full-width field w-100">
+                    <mat-label>Aadhar Card No</mat-label>
+                    <input type="number" matInput autocomplete="off" formControlName="aadhar" maxlength="12" onkeypress="if (this.value.length > 11) return false;">
+                </mat-form-field>
+                <div *ngIf="personalForm.controls['aadhar'].invalid && personalForm.controls['aadhar'].touched">
+                    <span class="text-danger" *ngIf="personalForm.controls['aadhar'].hasError('required')">Aadhar Card No Required</span>
+                    <span class="text-danger" *ngIf="personalForm.controls['aadhar'].hasError('pattern')">Aadhar Card No Invalid</span>
+                </div>
+            </div>
+            
+
+            <div class="text-center pt-3 pb-3">
+                <button class="btn btn-primary text-center">Submit</button>
+            </div>
+        </div>    
+    </form>
+</div>
+</section>

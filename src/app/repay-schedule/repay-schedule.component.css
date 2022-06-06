@@ -1,9 +1,9 @@
-section{padding-bottom: 30px;}
+section {padding-bottom: 30px;}
 .container{border-radius: 4%; box-shadow: 7px 6px 16px 15px  #eee; padding: 20px; width: 80%;}
 mat-label{font-size: 20px; color: black;}
 .btn {width: 60%;}
-input {padding: 10px 0; font-size: 18px;} 
-select { padding: 17px 0; font-size: 18px;}
-.block{padding: 20px;}
+input {padding: 10px 0; font-size: 18px;}
+
+.block{padding: 5px 20px;}
 h1 {font-size: 35px; font-weight: 500; padding: 10px 0;}
 .main {padding-bottom: 50px;}

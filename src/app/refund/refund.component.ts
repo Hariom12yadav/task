@@ -1,12 +1,13 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms';
+import { FormBuilder, Validators } from '@angular/forms';
 
 @Component({
-  selector: 'app-payrefund',
-  templateUrl: './payrefund.component.html',
-  styleUrls: ['./payrefund.component.css']
+  selector: 'app-refund',
+  templateUrl: './refund.component.html',
+  styleUrls: ['./refund.component.css']
 })
-export class PayrefundComponent implements OnInit {
+export class RefundComponent implements OnInit {
+
   public refundForm:any
   constructor(private fb:FormBuilder) { }
 
@@ -22,8 +23,8 @@ export class PayrefundComponent implements OnInit {
       mob:['', [Validators.required,Validators.pattern("((\\+91-?)|0)?[0-9]{10}")]]
     })
   }
-
   onSubmit(){
     console.log(this.refundForm.value)
   }
+
 }

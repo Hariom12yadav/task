@@ -1,12 +1,12 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms';
+import { FormBuilder, Validators } from '@angular/forms';
 
 @Component({
-  selector: 'app-loan',
-  templateUrl: './loan.component.html',
-  styleUrls: ['./loan.component.css']
+  selector: 'app-consumerloan',
+  templateUrl: './consumerloan.component.html',
+  styleUrls: ['./consumerloan.component.css']
 })
-export class LoanComponent implements OnInit {
+export class ConsumerloanComponent implements OnInit {
   public loanForm:any
   maxDate :any= new Date(2022,6,3);
 
@@ -32,7 +32,6 @@ export class LoanComponent implements OnInit {
       qualification :['',Validators.required] 
     })
   }
-
   onSubmit(){
     console.log(this.loanForm.value)    
     }

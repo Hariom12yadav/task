@@ -1,15 +1,13 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, Validators } from '@angular/forms';
-
+import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms';
 @Component({
-  selector: 'app-emiform',
-  templateUrl: './emiform.component.html',
-  styleUrls: ['./emiform.component.css']
+  selector: 'app-pay-emi',
+  templateUrl: './pay-emi.component.html',
+  styleUrls: ['./pay-emi.component.css']
 })
-export class EmiformComponent implements OnInit {
-  public EMIForm:any
+export class PayEMIComponent implements OnInit {
+public EMIForm:any
 maxDate:any = new Date(2022,3,6);
-
   constructor(private fb:FormBuilder) { }
 
   ngOnInit(): void {
@@ -21,9 +19,8 @@ maxDate:any = new Date(2022,3,6);
       amount: ['', Validators.required]
     })
   }
+
   onSubmit(){
     console.log(this.EMIForm.value)
   }
-
-
 }

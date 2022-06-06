@@ -1,0 +1,67 @@
+<app-header></app-header>
+<section>
+    <div class="container">
+        <div class="text-center">
+            <h1>Repayment Form</h1>
+        </div>
+        <form [formGroup]="repaymentForm" (ngSubmit)="onSubmit()">
+            <div class="row">
+                <div class="col-md-12 block">
+                    <mat-form-field class="example-full-width field w-100">
+                        <mat-label>Name of Claimnant</mat-label>
+                        <input type="text" matInput autocomplete="off" formControlName="name1" maxlength="10">
+                    </mat-form-field>
+                    <div *ngIf="repaymentForm.controls['name1'].invalid && repaymentForm.controls['name1'].touched">
+                        <span class="text-danger" *ngIf="repaymentForm.controls['name1'].hasError('required')"> Name of Claimnant required</span>
+                    </div>
+                </div>
+    
+                <div class="col-md-12 block">
+                    <mat-form-field class="example-full-width field w-100">
+                        <mat-label>Address</mat-label>
+                        <input type="text" matInput autocomplete="off" formControlName="address" maxlength="50">
+                    </mat-form-field> 
+                    <div *ngIf="repaymentForm.controls['address'].invalid && repaymentForm.controls['address'].touched">
+                        <span class="text-danger" *ngIf="repaymentForm.controls['address'].hasError('required')"> Address required</span>
+                    </div> 
+                </div>
+    
+                <div class="col-md-12 block">
+                    <mat-form-field class="example-full-width field w-100">
+                        <mat-label>Name Of Sender</mat-label>
+                        <input type="text" matInput autocomplete="off" formControlName="name2" maxlength="10">
+                    </mat-form-field>  
+                    <div *ngIf="repaymentForm.controls['name2'].invalid && repaymentForm.controls['name2'].touched">
+                        <span class="text-danger" *ngIf="repaymentForm.controls['name2'].hasError('required')"> Name Of Sender required</span>
+                    </div>
+                </div>
+    
+                <div class="col-md-6 block">
+                    <mat-form-field class="example-full-width field w-100">
+                        <mat-label>Mobile No</mat-label>
+                        <input type="text" matInput autocomplete="off" formControlName="mob" maxlength="10" onkeypress="if (this.value.length >= 10) return false;">
+                    </mat-form-field>
+                    <div *ngIf="repaymentForm.controls['mob'].invalid && repaymentForm.controls['mob'].touched">
+                        <span class="text-danger" *ngIf="repaymentForm.controls['mob'].hasError('required')"> Mobile No required</span>
+                        <span class="text-danger" *ngIf="repaymentForm.controls['mob'].hasError('pattern')"> Mobile No Invalid</span>
+                    </div>  
+                </div>
+    
+                <div class="col-md-6 block">
+                    <mat-form-field class="example-full-width field w-100">
+                        <mat-label>Amount</mat-label>
+                        <input type="text" matInput autocomplete="off" formControlName="amount" maxlength="7">
+                    </mat-form-field>  
+                    <div *ngIf="repaymentForm.controls['amount'].invalid && repaymentForm.controls['amount'].touched">
+                        <span class="text-danger" *ngIf="repaymentForm.controls['amount'].hasError('required')"> Amount required</span>
+                    </div>
+                </div>
+    
+                <div class="text-center pt-3 pb-3">
+                    <button class="btn btn-primary text-center">Submit</button>
+                </div>
+    
+            </div>
+        </form>
+    </div>
+</section>

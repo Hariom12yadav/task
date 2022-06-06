@@ -17,6 +17,8 @@ export class KycformComponent implements OnInit {
       firstname:['',[Validators.required,Validators.pattern("[a-zA-Z][a-zA-Z ]+")]],
       middlename:['',[Validators.required,Validators.pattern("[a-zA-Z][a-zA-Z ]+")]],
       lastname:['',[Validators.required,Validators.pattern("[a-zA-Z][a-zA-Z ]+")]],
+      father:['',[Validators.required,Validators.pattern("[a-zA-Z][a-zA-Z ]+")]],
+      mother:['',[Validators.required,Validators.pattern("[a-zA-Z][a-zA-Z ]+")]],
       email:['',[Validators.required,Validators.pattern("[a-zA-Z0-9][a-zA-Z0-9._-]+[a-zA-Z0-9]+@([a-zA-Z0-9-]+[.]){1,2}[a-zA-Z]{2,10}$")]],
       panno:['',[Validators.required,Validators.pattern('[a-zA-Z]{5}[0-9]{4}[a-zA-Z]{1}'),Validators.minLength(10)]],
       aadhar:['',[Validators.required,Validators.pattern('[1-9]{1}[0-9]{11}')]],
