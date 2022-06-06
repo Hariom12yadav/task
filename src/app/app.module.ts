@@ -27,6 +27,7 @@ import { MatButtonModule } from '@angular/material/button';
 import {MatDialogModule} from '@angular/material/dialog';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HomeloanComponent } from './homeloan/homeloan.component';
+import { Header2Component } from './header2/header2.component';
 
 @NgModule({
   declarations: [
@@ -41,7 +42,8 @@ import { HomeloanComponent } from './homeloan/homeloan.component';
     NocComponent,
     ForeclosureComponent,
     ConsumerComponent,
-    HomeloanComponent
+    HomeloanComponent,
+    Header2Component
   ],
   imports: [
     BrowserModule,

@@ -1,38 +1,54 @@
 <div class="main">
+  <section >
+    <div class="container">
+        <app-header2></app-header2>
+    </div>
+    </section>
 <div class="container">
-  
-        <form >
-            <header class="bg-secondary text-center mt-3" ><h1>Personal Details</h1></header>
+        <form [formGroup]="myForm" (ngSubmit)="onsubmit()">
+            <header class=" text-center mt-3 pt-3 pb-3"  ><h1 style="font-weight: bolder;">Personal Details</h1></header>
             <div class="row mt-3 px-3">
             <div class="col-xl-4">
                 <mat-form-field class="w-100" >
                     <label class=" text-secondary" >First Name*</label>
-                    <input matInput  formControlName="firstname">
-                    <!-- <mat-error *ngIf="Haserror2('firstname','required')">Please enter first name</mat-error> -->
+                    <input matInput  formControlName="firstname" maxlength="20">
                   </mat-form-field>
+                  <div *ngIf="myForm.controls['firstname'].invalid && (myForm.controls['firstname'].dirty || myForm.controls['firstname'].touched || myForm.controls['firstname'].pattern)" >
+                    <mat-error *ngIf="myForm.controls['firstname'].errors.required">  Please enter name</mat-error>
+                    <mat-error *ngIf="myForm.controls['firstname'].errors.pattern">  please enter characters only</mat-error>
+                    </div>
             </div>
             <div class="col-xl-4">
                 <mat-form-field class="w-100" >
                     <label class=" text-secondary" >Middle Name*</label>
-                    <input matInput  formControlName="firstname">
-                    <!-- <mat-error *ngIf="Haserror2('firstname','required')">Please enter first name</mat-error> -->
+                    <input matInput  formControlName="middlename" maxlength="20">
                   </mat-form-field>
+                  <div *ngIf="myForm.controls['middlename'].invalid && (myForm.controls['middlename'].dirty || myForm.controls['middlename'].touched || myForm.controls['middlename'].pattern)" >
+                    <mat-error *ngIf="myForm.controls['middlename'].errors.required">  Please enter name</mat-error>
+                    <mat-error *ngIf="myForm.controls['middlename'].errors.pattern">  please enter characters only</mat-error>
+                    </div>
             </div>
             <div class="col-xl-4">
                 <mat-form-field class="w-100" >
                     <label class=" text-secondary" >Last Name*</label>
-                    <input matInput  formControlName="firstname">
-                    <!-- <mat-error *ngIf="Haserror2('firstname','required')">Please enter first name</mat-error> -->
+                    <input matInput  formControlName="lastname" maxlength="20">
                   </mat-form-field>
+                  <div *ngIf="myForm.controls['lastname'].invalid && (myForm.controls['lastname'].dirty || myForm.controls['lastname'].touched || myForm.controls['lastname'].pattern)" >
+                    <mat-error *ngIf="myForm.controls['lastname'].errors.required">  Please enter name</mat-error>
+                    <mat-error *ngIf="myForm.controls['lastname'].errors.pattern">  please enter characters only</mat-error>
+                    </div>
             </div>
         </div>
         <div class="row mt-3 px-3">
             <div class="col-xl-4">
                 <mat-form-field class="w-100" >
                     <label class=" text-secondary" >Email-Id</label>
-                    <input matInput type="email" formControlName="firstname">
-                    <!-- <mat-error *ngIf="Haserror2('firstname','required')">Please enter first name</mat-error> -->
+                    <input matInput type="email" formControlName="email">
                   </mat-form-field>
+                  <div *ngIf="myForm.controls['email'].invalid && (myForm.controls['email'].dirty || myForm.controls['email'].touched || myForm.controls['email'].pattern)" >
+                    <mat-error *ngIf="myForm.controls['email'].errors.required">  Please enter name</mat-error>
+                    <mat-error *ngIf="myForm.controls['email'].errors.pattern">Enter valid Email-Id</mat-error>
+                    </div>
             </div>
             <div class="col-xl-4">
                 <mat-form-field class="w-100">
@@ -41,27 +57,37 @@
                     <input matInput [matDatepicker]="picker1" formControlName="DOB" [max]="maxDate" >
                     <mat-datepicker-toggle matSuffix [for]="picker1" class="fs-5"></mat-datepicker-toggle>       
                     <mat-datepicker #picker1></mat-datepicker>
-                    
-                    <!-- <mat-error *ngIf="Haserror('DOB','required')">Enter DOB</mat-error> -->
+                    <mat-error *ngIf="Haserror('DOB','required')">Enter DOB</mat-error>
                   </mat-form-field>
             </div>
             <div class="col-xl-4">
                 <mat-form-field class="w-100" >
                     <label class=" text-secondary" >Mobile .No</label>
-                    <input matInput type="number"  formControlName="firstname" maxlength="10">
-                    <!-- <mat-error *ngIf="Haserror2('firstname','required')">Please enter first name</mat-error> -->
+                    <input matInput type="number"  formControlName="mobile" maxlength="10">
                   </mat-form-field>
+                  <div *ngIf="myForm.controls['mobile'].invalid && (myForm.controls['mobile'].dirty || myForm.controls['mobile'].touched || myForm.controls['mobile'].pattern)" >
+                    <mat-error *ngIf="myForm.controls['mobile'].errors.required">  Please enter Mobile Number</mat-error>
+                    <mat-error *ngIf="myForm.controls['mobile'].errors.pattern">  Mobile number is not Valid</mat-error>
+                    </div>
             </div>
+
         </div>
         <div class="row mt-3 px-3">
             <div class="col-xl-4">
                 <mat-form-field class="w-100" >
                     <label class=" text-secondary" >Address</label>
-                    <input matInput type="email" formControlName="firstname">
-                    <!-- <mat-error *ngIf="Haserror2('firstname','required')">Please enter first name</mat-error> -->
+                    <input matInput type="email" formControlName="address">
                   </mat-form-field>
+                  <div *ngIf="myForm.controls['address'].invalid && (myForm.controls['address'].dirty || myForm.controls['address'].touched || myForm.controls['address'].pattern)" >
+                    <mat-error *ngIf="myForm.controls['address'].errors.required">  Please enter Address</mat-error>
+                    <mat-error *ngIf="myForm.controls['address'].errors.pattern">  Address is not valid</mat-error>
+                    </div>
             </div>
             </div>
+
+     <button  class="btn btn-primary btn-lg mt-3 mb-5 " style="margin-left: 10px;" [disabled]="myForm.invalid" >SUBMIT</button>
+             
+             
 
         
         </form>
